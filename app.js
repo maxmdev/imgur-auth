@@ -17,11 +17,13 @@ app.get('/api/authorize', (req, res) => {
     const callbackUri = 'https://www.integromat.com/oauth/cb/app'; // url to send a query with tokens
     const state = req.query.state;
 
+    // Defines options for EJS renderer
     const renderOptions = {
         callbackUri: callbackUri,
         state: state
     }
 
+    // Renders HTML page
     ejs.renderFile('./public/index.ejs', renderOptions, {}, (err, temp) => {
         if(err) {
             throw new Error(err);
