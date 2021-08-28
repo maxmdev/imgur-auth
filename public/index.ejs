@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>imgur Auth</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css"/>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
+    <script type="text/javascript" src="/scripts.js"></script>
+    <script>
+        const state = '<%= state %>';
+        const redirectUri = '<%= redirectUri %>';
+        const locationHash = window.location.hash;
+
+        const queryParams = '?state=' + state + locationHash.replace('#', '&');
+
+        const requestUri = redirectUri + queryParams;
+
+        request(requestUri);
+    </script>
+</head>
+<body>
+    <div id="appRoot">
+        <div id="requestStatus">Processing...</div>
+    </div>
+</body>
+</html>
