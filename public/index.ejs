@@ -7,15 +7,21 @@
     <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
     <script type="text/javascript" src="/scripts.js"></script>
     <script>
+        // Retrieves a state, and a redirect URI
         const state = '<%= state %>';
-        const redirectUri = '<%= redirectUri %>';
+        const callbackUri = '<%= redirectUri %>';
+
+        // Retrieves a location hash string
         const locationHash = window.location.hash;
 
+        // Build a query params string
         const queryParams = '?state=' + state + locationHash.replace('#', '&');
 
-        const requestUri = redirectUri + queryParams;
+        // Creates a valid request URI
+        const redirectUri = callbackUri + queryParams;
 
-        request(requestUri);
+        // Redirects user to default callback URI
+        redirect(redirectUri);
     </script>
 </head>
 <body>

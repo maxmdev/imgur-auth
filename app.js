@@ -14,11 +14,11 @@ app.use(express.json());
 // [POST] '/api/authorize'
 app.get('/api/authorize', (req, res) => {
     // Defines request parameters
-    const redirectUri = 'https://www.integromat.com/oauth/cb/app'; // url to send a query with tokens
+    const callbackUri = 'https://www.integromat.com/oauth/cb/app'; // url to send a query with tokens
     const state = req.query.state;
 
     const renderOptions = {
-        redirectUri: redirectUri,
+        callbackUri: callbackUri,
         state: state
     }
 
