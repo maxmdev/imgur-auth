@@ -1,4 +1,5 @@
 (async (requestUri) => {
+
     // Defines a status message container
     const status = document.getElementById('requestStatus');
 

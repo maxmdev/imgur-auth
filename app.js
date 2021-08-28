@@ -43,7 +43,7 @@ app.get('/api/authorize', (req, res) => {
 })
 
 // [GET] *
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
     res.status(200).sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
