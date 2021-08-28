@@ -11,7 +11,7 @@ const app = express();
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(express.json());
 
-// [POST] '/api/authorize'
+// [GET] '/api/authorize'
 app.get('/api/authorize', (req, res) => {
     // Defines request parameters
     const callbackUri = 'https://www.integromat.com/oauth/cb/app'; // url to send a query with tokens
