@@ -3,6 +3,9 @@ const express = require('express');
 const path = require('path');
 const ejs = require('ejs');
 
+// Defines a Callback URI
+const CALLBACK_URI = 'https://www.integromat.com/oauth/cb/app'; // url to send a query with tokens
+
 // Defines express server constants
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -14,13 +17,17 @@ app.use(express.json());
 // [GET] '/api/authorize'
 app.get('/api/authorize', (req, res) => {
     // Defines request parameters
-    const callbackUri = 'https://www.integromat.com/oauth/cb/app'; // url to send a query with tokens
     const state = req.query.state;
 
     // Defines options for EJS renderer
     const renderOptions = {
-        callbackUri: callbackUri,
+        callbackUri: CALLBACK_URI,
         state: state
+    }
+
+    // Error handler if no state received
+    if (!state) {
+        res.status(403).json({"error": "App [state] variable is required."})
     }
 
     // Renders HTML page

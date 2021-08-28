@@ -2,7 +2,7 @@
   "name": "imgur-auth-proxy",
   "version": "1.0.0",
   "description": "Proxy server for imgur authorization endpoint that sends credentials in body, not in a hash query string.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "NODE_ENV=production node app.js",
     "dev": "NODE_ENV=development nodemon app.js"
